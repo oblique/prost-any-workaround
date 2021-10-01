@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package a.b.c.foo;
+
+message Foo {
+    repeated google.protobuf.Any msgs = 1;
+}
+
+enum SomeEnum {
+    SomeEnumA = 0;
+    SomeEnumB = 1;
+    SomeEnumC = 2;
+}
+
+message Bar {
+    uint32 i = 1;
+}
+
+message Baz {
+    float f = 1;
+}
+
+message a__b_c {
+    bool b = 1;
+}
+
+message bcd {
+    SomeEnum some_enum = 1;
+}

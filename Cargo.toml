@@ -1,0 +1,15 @@
+[package]
+name = "prost-any"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+bytes = "1.1.0"
+prost = "0.8.0"
+prost-types = "0.8.0"
+
+[build-dependencies]
+prost = "0.8.0"
+prost-types = "0.8.0"
+prost-build = "0.8.0"
+quote = "1.0.9"
