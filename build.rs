@@ -1,3 +1,4 @@
+use heck::CamelCase;
 use prost::Message;
 use prost_types::FileDescriptorSet;
 use quote::{format_ident, quote};
@@ -40,7 +41,7 @@ fn main() {
             };
 
             let type_url = format!("type.googleapis.com/{}.{}", package, name);
-            let type_name = to_upper_camel(name);
+            let type_name = name.to_camel_case();
 
             gen_type_url(&mut gen_file, &type_url, &type_name);
         }
@@ -60,19 +61,4 @@ fn gen_type_url(gen_file: &mut File, type_url: &str, type_name: &str) {
 
     writeln!(gen_file).unwrap();
     writeln!(gen_file, "{}", &tokens).unwrap();
-}
-
-fn to_upper_camel(s: &str) -> String {
-    s.split('_')
-        .map(|w| {
-            let mut chars = w.chars();
-            chars
-                .next()
-                .map(|first_letter| first_letter.to_uppercase())
-                .into_iter()
-                .flatten()
-                .chain(chars)
-        })
-        .flatten()
-        .collect()
 }

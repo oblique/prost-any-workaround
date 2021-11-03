@@ -156,6 +156,7 @@ name = "prost-any"
 version = "0.1.0"
 dependencies = [
  "bytes",
+ "heck",
  "prost",
  "prost-build",
  "prost-types",
