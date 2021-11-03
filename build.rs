@@ -5,6 +5,7 @@ use quote::{format_ident, quote};
 use std::env;
 use std::fs::{self, File, OpenOptions};
 use std::io::Write;
+use std::path::Path;
 use std::path::PathBuf;
 
 fn main() {
@@ -20,6 +21,10 @@ fn main() {
     let file_descriptor_set =
         FileDescriptorSet::decode(&file_descriptor_set_bytes[..]).unwrap();
 
+    generate_extras(&out_dir, &file_descriptor_set);
+}
+
+fn generate_extras(out_dir: &Path, file_descriptor_set: &FileDescriptorSet) {
     for fd in &file_descriptor_set.file {
         let package = match fd.package {
             Some(ref pkg) => pkg,

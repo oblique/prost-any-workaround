@@ -39,7 +39,7 @@ fn encoded_foo() -> Vec<u8> {
             pack_to_any(foo::Baz {
                 f: 2.3,
             }),
-            pack_to_any(foo::ABC {
+            pack_to_any(foo::Abc {
                 b: true,
             }),
             pack_to_any(foo::Bcd {
@@ -55,7 +55,7 @@ fn main() {
 
     let mut foo = Foo::decode(&foo_bytes[..]).unwrap();
     dbg!(unpack_from_any::<foo::Bcd>(foo.msgs.pop().unwrap()).unwrap());
-    dbg!(unpack_from_any::<foo::ABC>(foo.msgs.pop().unwrap()).unwrap());
+    dbg!(unpack_from_any::<foo::Abc>(foo.msgs.pop().unwrap()).unwrap());
     dbg!(unpack_from_any::<foo::Baz>(foo.msgs.pop().unwrap()).unwrap());
     dbg!(unpack_from_any::<foo::Bar>(foo.msgs.pop().unwrap()).unwrap());
 }

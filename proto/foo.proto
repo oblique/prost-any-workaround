@@ -21,10 +21,10 @@ message Baz {
     float f = 1;
 }
 
-message a__b_c {
+message Abc {
     bool b = 1;
 }
 
-message bcd {
+message Bcd {
     SomeEnum some_enum = 1;
 }
